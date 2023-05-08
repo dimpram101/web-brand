@@ -1,0 +1,23 @@
+spek web sonny
+
+tema = introduce brand lokal indo
+jdi itu dim nnti kek beberapa catalognya aja yg di tampilkan
+misalkan kek masing" brand itu ada sepatu celana hoodie atau tshirtnya gausah bnyk" kasih aja masing" brand 3 catalog aja sisanya nnti aku tambahin sendiri
+
+1. maternal
+2. rucas
+3. erigo 
+4. Abigail
+5. starcross
+6. wadezig
+7. greenlight
+8. doubjack
+9. kick denim
+10. screamous
+
+untuk tampilan halamanya dibikin simple aja dim klo perlu pke halaman login juga 
+
+untuk tampilan halaman utama
+1. yg di tampilkan nnti cmn logo brand"nya doang aja nnti pas di click baru ke redirect masuk ke brand yg di click
+2. bikin search buat nyari brand"nya 
+3. bikin menu home abaut us contact login aja
