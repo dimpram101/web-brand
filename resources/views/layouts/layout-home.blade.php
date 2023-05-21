@@ -13,7 +13,7 @@
     <div class="mb-20" id="navbar">
         <nav class="border-gray-200 bg-gray-50 shadow-md fixed top-0 left-0 w-full z-50">
             <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto h-20">
-                <a href="#" class="flex items-center">
+                <a href="/" class="flex items-center">
                     <span class="self-center text-2xl font-semibold whitespace-nowrap">IniClothingan<span
                             class="text-orange-500">.Indo</span></span>
                 </a>
@@ -32,25 +32,32 @@
                     <ul
                         class="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-transparent text-lg">
                         <li>
-                            <a href="#" class="block p-0 text-orange-600 bg-blue-700 rounded md:bg-transparent"
+                            <a href="{{ route('home') }}"
+                                class="block p-0 rounded 
+                            md:bg-transparent {{ $active == "home" ? 'text-orange-500 hover:text-gray-900' : 'text-gray-900 hover:text-orange-500' }}"
                                 aria-current="page">Home</a>
                         </li>
                         <li>
-                            <a href="#about-us" class="block p-0 text-gray-900 rounded hover:bg-gray-100">About Us</a>
-                        </li>
-                        <li>
-                            <a href="#" class="block p-0 text-gray-900 rounded hover:bg-gray-100">Contact</a>
+                            <a href="/katalog" class="block p-0 rounded {{ $active == "katalog" ? 'text-orange-500 hover:text-gray-900' : 'text-gray-900 hover:text-orange-500' }}">Katalog</a>
                         </li>
                     </ul>
                 </div>
-                <div class="flex flex-row gap-10 items-center">
-                    <div class="flex gap-2 items-center">
-                        <input type="text" name="search" id="search" placeholder="Cari di sini..."
-                            class="border border-black py-2 px-4 rounded-2xl">
-                        <img src="{{ asset('search-magnifying-glass-svgrepo-com.png') }}" alt=""
-                            class="w-8 h-8">
-                    </div>
-                    <a href="/login" class="bg-orange-500 py-3 px-6 rounded-lg font-bold">Login</a>
+                <div class="flex flex-row gap-4 items-center">
+                    @if (Auth::check())
+                        <div class="flex flex-row gap-3 items-center w-fit">
+                            <div class="font-bold">{{ Auth::user()->name }}</div>
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button type="submit"
+                                    class="bg-orange-500 py-3 px-6 rounded-lg font-bold">Logout</button>
+                            </form>
+                        </div>
+                    @else
+                        <a href="/login"
+                            class="bg-orange-500 py-3 px-6 rounded-lg font-bold hover:text-white">Login</a>
+                        <a href="/register"
+                            class="border-2 border-orange-500 py-3 px-6 rounded-lg font-bold hover:bg-orange-500 hover:text-white">Register</a>
+                    @endif
                 </div>
             </div>
         </nav>
@@ -59,8 +66,9 @@
         @yield('body')
     </div>
     <div class="mt-10 text-center mb-8 font-bold">
-      {{ "COPYRIGHT @SONNY" }}
+        {{ 'COPYRIGHT @SONNY' }}
     </div>
+
 </body>
 
 </html>

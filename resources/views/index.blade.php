@@ -1,4 +1,4 @@
-@extends('layouts.layout-home')
+@extends('layouts.layout-home', ["active" => $active])
 
 @section('body')
     <div class="flex flex-col gap-10">
@@ -15,23 +15,31 @@
         </div>
         <div class="flex flex-col text-2xl gap-2 ">
             <p class="font-bold text-center">Available Reviews</p>
-            <div class="grid grid-cols-3 gap-3 h-[800px]">
-                <div class="cursor-pointer hover:opacity-80 border border-gray-300">
-                    <img src="{{ asset('CHINO-PANTS-SIRIUS-BLACK-1.webp') }}" alt="" class="h-full object-cover">
+            <div class="flex flex-wrap justify-center gap-3 mt-4">
+                <div class="image cursor-pointer hover:opacity-80 border border-gray-300" onclick="redirect('{{ route('katalog') }}')">
+                    <img src="{{ asset('maternal/logo.png') }}" alt="" class="h-full object-cover">
                 </div>
-                <div class="cursor-pointer hover:opacity-80 border border-gray-300">
-                    <img src="{{ asset('id-11134201-23020-v19cztul8wnv3f_590x.webp') }}" alt=""
+                <div class="image cursor-pointer hover:opacity-80 border border-gray-300" onclick="redirect('{{ route('katalog') }}')">
+                    <img src="{{ asset('erigo/logo.png') }}" alt=""
                         class="h-full object-cover">
                 </div>
-                <div class="cursor-pointer hover:opacity-80 border border-gray-300">
-                    <img src="{{ asset('WTM0039256WATERFALLBLACKIDR125.000.webp') }}" alt=""
+                <div class="image cursor-pointer hover:opacity-80 border border-gray-300" onclick="redirect('{{ route('katalog') }}')">
+                    <img src="{{ asset('abigail/logo.png') }}" alt=""
+                        class="h-full object-cover">
+                </div>
+                <div class="image cursor-pointer hover:opacity-80 border border-gray-300" onclick="redirect('{{ route('katalog') }}')">
+                    <img src="{{ asset('rucas/logo.png') }}" alt=""
+                        class="h-full object-cover">
+                </div>
+                <div class="image cursor-pointer hover:opacity-80 border border-gray-300" onclick="redirect('{{ route('katalog') }}')">
+                    <img src="{{ asset('starcross/logo.png') }}" alt=""
                         class="h-full object-cover">
                 </div>
             </div>
         </div>
-        <div class="flex flex-col items-center gap-2">
+        <div id="contact" class="flex flex-col items-center gap-2">
             <p class="text-3xl font-bold">Contact</p>
-            <div class="grid grid-cols-2 grid-rows-3 text-2xl w-1/3">
+            <div class="grid grid-cols-2 grid-rows-3 text-2xl w-[30%]">
                 <p>Address</p>
                 <p>Politeknik Negeri Samarinda</p>
                 <p>Phone</p>
@@ -41,4 +49,9 @@
             </div>
         </div>
     </div>
+    <script>
+        const redirect = (route) => {
+            window.location.href = route;
+        }
+    </script>
 @endsection
